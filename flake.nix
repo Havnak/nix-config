@@ -39,6 +39,8 @@
           ncdu
           uv
           sioyek
+	  vlc
+	  vlc
         ];
       };
     };
