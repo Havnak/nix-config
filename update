@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+cd ~/nix-config
+nix flake update 
+nix profile upgrade nix-config
