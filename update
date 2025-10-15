@@ -2,5 +2,26 @@
 set -e
 
 cd ~/nix-config
-nix flake update 
+
+echo "Updating flake inputs..."
+nix flake update
+
+echo "Upgrading Nix profile..."
 nix profile upgrade nix-config
+
+if ! git diff --quiet HEAD flake.nix; then
+  printf "flake.nix changed. Commit changes? [y/N]: "
+  read -r commit_answer
+
+  if [ "$commit_answer" = "y" ] || [ "$commit_answer" = "Y" ]; then
+    git add flake.lock
+    git commit -m "flake: update inputs ($(date +%Y-%m-%d))"
+    echo "Pushing to GitHub..."
+    git push
+  else
+    echo "Skipping commit and push."
+  fi
+else
+  echo "No changes to flake.nix — nothing to commit."
+fi
+
