@@ -22,7 +22,7 @@
         packages.${system}.default = pkgs.buildEnv {
             name = "system-packages";
             paths = with pkgs; [
-                git 
+                    git 
                     vim
                     curl
                     wget
@@ -40,6 +40,8 @@
                     uv
                     sioyek
                     vlc
+                    gnumake
+                    libgcc
             ];
         };
     };
