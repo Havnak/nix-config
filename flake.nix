@@ -31,6 +31,8 @@
                     clang-tools
                     openssh
                     nmap
+                    fd
+                    xsel
                     ripgrep
                     systemPython
                     alacritty
@@ -41,6 +43,7 @@
                     sioyek
                     vlc
                     gnumake
+                    gcc
                     libgcc
             ];
         };
