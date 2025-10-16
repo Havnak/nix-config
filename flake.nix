@@ -45,6 +45,8 @@
                     gnumake
                     gcc
                     libgcc
+                    cargo
+                    rustc
             ];
         };
     };
