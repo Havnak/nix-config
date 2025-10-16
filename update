@@ -7,34 +7,34 @@ echo "Updating flake inputs..."
 nix flake update
 
 echo "Upgrading Nix profile..."
-nix profile upgrade ~/nix-config
+nix profile upgrade nix-config
 
 committed_any=false
 
 # Check if flake.nix has changed
 if ! git diff --quiet HEAD flake.nix; then
-  git add flake.nix
-  committed_any=true
+    git add flake.nix
+    committed_any=true
 fi
 
 # Check if flake.lock has changed
 if ! git diff --quiet HEAD flake.lock; then
-  git add flake.lock
-  committed_any=true
+    git add flake.lock
+    committed_any=true
 fi
 
 if [ "$committed_any" = true ]; then
-  printf "Push to GitHub? [y/N]: "
-  read -r push_answer
+    printf "Push to GitHub? [y/N]: "
+    read -r push_answer
 
-  if [ "$push_answer" = "y" ] || [ "$push_answer" = "Y" ]; then
-    git commit -m "flake: update $(date +%Y-%m-%d)"
-    echo "Pushing to GitHub..."
-    git push
-  else
-    echo "Skipping push."
-  fi
+    if [ "$push_answer" = "y" ] || [ "$push_answer" = "Y" ]; then
+        git commit -m "flake: update $(date +%Y-%m-%d)"
+        echo "Pushing to GitHub..."
+        git push
+    else
+        echo "Skipping push."
+    fi
 else
-  echo "No changes to flake.nix or flake.lock — nothing to commit."
+    echo "No changes to flake.nix or flake.lock — nothing to commit."
 fi
 
