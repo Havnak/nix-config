@@ -26,6 +26,7 @@
           openssh
           nmap
           fd
+          feh
           xsel
           ripgrep
           systemPython
