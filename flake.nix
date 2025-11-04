@@ -42,6 +42,7 @@
           cargo
           rustc
           terminator
+          signal-desktop-bin
         ];
       };
     };
