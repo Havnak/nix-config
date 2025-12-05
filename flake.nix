@@ -1,12 +1,15 @@
 {
   description = "System-wide Ubuntu packages managed by a flake";
 
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; };
+  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; };
 
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
 
       # Python environment
       systemPython =
@@ -43,6 +46,7 @@
           rustc
           terminator
           signal-desktop-bin
+          firefox-bin
         ];
       };
     };
