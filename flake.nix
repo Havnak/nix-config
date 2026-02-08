@@ -47,6 +47,7 @@
           terminator
           signal-desktop-bin
           firefox-bin
+          otpclient
         ];
       };
     };
