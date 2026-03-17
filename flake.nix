@@ -48,6 +48,8 @@
           signal-desktop-bin
           firefox-bin
           otpclient
+          cachix
+          devenv
         ];
       };
     };
