@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    devenv.url = "github:cachix/devenv/v2.0.4";
+    devenv.url = "github:cachix/devenv/v2.0.5";
   };
 
   outputs = { self, nixpkgs, devenv }:
