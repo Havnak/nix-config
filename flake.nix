@@ -50,6 +50,7 @@
           terminator
           otpclient
           cachix
+          direnv
           devenv.packages.${system}.devenv
         ];
       };
