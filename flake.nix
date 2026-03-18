@@ -1,9 +1,12 @@
 {
   description = "System-wide Ubuntu packages managed by a flake";
 
-  inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    devenv.url = "github:cachix/devenv/v2.0.4";
+  };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, devenv }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -49,7 +52,7 @@
           firefox-bin
           otpclient
           cachix
-          devenv
+          devenv.packages.${system}.devenv
         ];
       };
     };
