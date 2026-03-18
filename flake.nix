@@ -48,8 +48,6 @@
           cargo
           rustc
           terminator
-          signal-desktop-bin
-          firefox-bin
           otpclient
           cachix
           devenv.packages.${system}.devenv
