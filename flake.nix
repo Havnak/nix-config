@@ -6,19 +6,31 @@
     devenv.url = "github:cachix/devenv/v2.0.5";
   };
 
-  outputs = { self, nixpkgs, devenv }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      devenv,
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        config = { allowUnfree = true; };
+        config = {
+          allowUnfree = true;
+        };
       };
 
       # Python environment
-      systemPython =
-        pkgs.python312.withPackages (ps: with ps; [ numpy matplotlib ]);
+      systemPython = pkgs.python312.withPackages (
+        ps: with ps; [
+          numpy
+          matplotlib
+        ]
+      );
 
-    in {
+    in
+    {
       packages.${system}.default = pkgs.buildEnv {
         name = "system-packages";
         paths = with pkgs; [
@@ -51,9 +63,9 @@
           otpclient
           cachix
           direnv
+          vscodium
           devenv.packages.${system}.devenv
         ];
       };
     };
 }
-
