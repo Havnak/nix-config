@@ -64,6 +64,7 @@
           cachix
           direnv
           vscodium
+          docker
           devenv.packages.${system}.devenv
         ];
       };
