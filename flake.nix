@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     devenv.url = "github:cachix/devenv/v2.0.5";
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs =
@@ -11,6 +12,7 @@
       self,
       nixpkgs,
       devenv,
+      nixgl,
     }:
     let
       system = "x86_64-linux";
@@ -19,6 +21,7 @@
         config = {
           allowUnfree = true;
         };
+        overlays = [ nixgl.overlay ];
       };
 
       # Python environment
@@ -64,8 +67,9 @@
           cachix
           direnv
           vscodium
-          docker
+          podman
           devenv.packages.${system}.devenv
+          nixgl
         ];
       };
     };
