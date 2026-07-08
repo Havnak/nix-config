@@ -25,7 +25,7 @@
       };
 
       # Python environment
-      systemPython = pkgs.python312.withPackages (
+      systemPython = pkgs.python313.withPackages (
         ps: with ps; [
           numpy
           matplotlib
