@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    devenv.url = "github:cachix/devenv/v2.0.5";
     nixgl.url = "github:nix-community/nixGL";
   };
 
@@ -11,7 +10,6 @@
     {
       self,
       nixpkgs,
-      devenv,
       nixgl,
     }:
     let
@@ -68,7 +66,8 @@
           direnv
           vscodium
           podman
-          devenv.packages.${system}.devenv
+          pympress
+          kdePackages.okular
         ];
       };
     };
