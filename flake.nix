@@ -69,6 +69,7 @@
           pympress
           kdePackages.okular
           bat
+          tio
         ];
       };
     };
