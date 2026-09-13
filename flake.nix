@@ -68,6 +68,7 @@
           podman
           pympress
           kdePackages.okular
+          bat
         ];
       };
     };
